@@ -1,0 +1,2 @@
+tar cfz win-cookbooks.tgz cookbooks/sql_server cookbooks/windows cookbooks/openssl cookbooks/chef_handler cookbooks/powershell
+aws put bratty_packages win-cookbooks.tgz  --public

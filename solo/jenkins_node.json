@@ -1,0 +1,8 @@
+{ 
+  "jenkins":{
+    "server":{
+      "plugins":["subversion","git"]
+      }
+    },      
+  "run_list":["jenkins", "subversion::server"]
+}

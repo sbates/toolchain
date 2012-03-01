@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers class="vector">
+    <hudson.triggers.TimerTrigger>
+      <spec>0 0 * * * </spec>
+    </hudson.triggers.TimerTrigger>
+  </triggers>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command># find all config files and copy them to svn working directory
+cd /var/lib/jenkins
+for i in `find . -name config.xml`; do cp --parents $i /home/jenkins/toolchain/jenkins ;done
+# add any new files
+cd /home/jenkins/toolchain/jenkins
+svn add . --force -q  --username svn --password svn --non-interactive
+#commit the files
+svn commit -q -m &apos;adding changed/added jenkins job config.xml files&apos;  --username svn --password svn --non-interactive</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>

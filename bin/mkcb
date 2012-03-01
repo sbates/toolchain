@@ -1,0 +1,2 @@
+tar cfz cookbooks.tgz cookbooks/apache2 cookbooks/apt cookbooks/chef_handler cookbooks/java cookbooks/openssl cookbooks/jenkins cookbooks/subversion cookbooks/runit cookbooks/java
+aws put bratty_packages cookbooks.tgz  --public
