@@ -4,5 +4,5 @@
       "plugins":["subversion","git"]
       }
     },      
-  "run_list":["jenkins", "subversion::server"]
+  "run_list":["chef", "jenkins", "subversion::server","jenkins::job_manager"]
 }

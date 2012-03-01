@@ -1,0 +1,5 @@
+changes to cookbooks:
+
+Subversion::server
+added :immediately to the apache restart notification
+added --config-dir "/var/www" to the create repository block

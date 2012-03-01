@@ -1,4 +1,4 @@
-log_level        :info
+log_level        :debug
 log_location     STDOUT
 
 file_cache_path   "/var/chef/cache"

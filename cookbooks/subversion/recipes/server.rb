@@ -38,6 +38,7 @@ execute "svnadmin create repo" do
   creates "#{node[:subversion][:repo_dir]}/#{node[:subversion][:repo_name]}"
   user node[:apache][:user]
   group node[:apache][:user]
+  notifies :restart, resources(:service => "apache2"), :immediately
 end
 
 execute "create htpasswd file" do

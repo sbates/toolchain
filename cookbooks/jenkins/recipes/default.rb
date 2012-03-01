@@ -27,7 +27,8 @@ tmp = "/tmp"
 
 user node[:jenkins][:server][:user] do
   home node[:jenkins][:server][:home]
-end
+  action :nothing
+end.run_action(:create)	
 
 directory node[:jenkins][:server][:home] do
   recursive true

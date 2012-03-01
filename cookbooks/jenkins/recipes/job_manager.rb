@@ -2,7 +2,7 @@
 # Set up Subversion for managing new and updated
 # Jenkins jobs in an established environment
 ################################################# 
-directory "#{node['jenkins']['node']['home']}/svn/#{node['subversion']['repo_name']}" do
+directory "#{node['jenkins']['node']['home']}/svn/#{node['subversion']['repo_name']}/jenkins" do
   action :nothing
   owner node['jenkins']['server']['user']
   group node['jenkins']['server']['group']
@@ -19,7 +19,7 @@ subversion "jenkins_toolchain_setup" do
   svn_password node['subversion']['user']
   user node['jenkins']['server']['user']
   group node['jenkins']['server']['group']
-  action :checkout
+  action :export
 end
 
 ##################################################
@@ -35,17 +35,17 @@ directory "#{node['jenkins']['node']['home']}/jobs" do
   recursive true
 end.run_action(:create)
 
-%w{jobs_backup}.each do |job|
-  jenkins_job job do
-    config "#{node['jenkins']['node']['home']}/jobs/#{job}-config.xml"
+%w{jobs_backup jobs_backup1 jobs_backup2}.each do |job_name|
+  jenkins_job job_name do
+    config "#{node['jenkins']['node']['home']}/jobs/#{job_name}-config.xml"
     action :nothing
   end
 
-  template "#{node['jenkins']['node']['home']}/jobs/#{job}-config.xml" do
-    source "#{job}.xml.erb"
+  template "#{node['jenkins']['node']['home']}/jobs/#{job_name}-config.xml" do
+    source "#{job_name}.xml.erb"
     owner node['jenkins']['server']['user']
     group node['jenkins']['server']['group']
-    notifies :update, "jenkins_job[#{job}]", :immediately
-    notifies :build,  "jenkins_job[#{job}]", :immediately
+    notifies :update, "jenkins_job[#{job_name}]", :immediately
+    notifies :build,  "jenkins_job[#{job_name}]", :immediately
   end
 end
