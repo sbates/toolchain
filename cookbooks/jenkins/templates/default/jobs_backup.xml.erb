@@ -21,7 +21,7 @@
 cd /var/lib
 for i in `find ./jenkins -name config.xml`; do cp --parents $i /home/jenkins/svn/toolchain ;done
 # add any new files
-cd /home/jenkins/svn/toolchain/jenkins
+cd /home/jenkins/svn/toolchain
 svn add . --force -q  --username svn --password svn --non-interactive
 #commit the files
 svn commit -q -m &apos;adding changed/added jenkins job config.xml files&apos;  --username svn --password svn --non-interactive</command>

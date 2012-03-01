@@ -2,7 +2,7 @@
 # Set up Subversion for managing new and updated
 # Jenkins jobs in an established environment
 ################################################# 
-directory "#{node['jenkins']['node']['home']}/svn/#{node['subversion']['repo_name']}/jenkins" do
+directory "#{node['jenkins']['node']['home']}/svn/#{node['subversion']['repo_name']}" do
   action :nothing
   owner node['jenkins']['server']['user']
   group node['jenkins']['server']['group']
@@ -14,12 +14,12 @@ subversion "jenkins_toolchain_setup" do
   revision "HEAD"
   destination "#{node['jenkins']['node']['home']}/svn/#{node['subversion']['repo_name']}"
   svn_info_args "--config-dir /home/jenkins --non-interactive"
-  svn_arguments "--config-dir /home/jenkins --non-interactive"
+  svn_arguments "--config-dir /home/jenkins --non-interactive --force"
   svn_username node['subversion']['user']
   svn_password node['subversion']['user']
   user node['jenkins']['server']['user']
   group node['jenkins']['server']['group']
-  action :export
+  action :checkout
 end
 
 ##################################################
