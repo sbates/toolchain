@@ -23,10 +23,10 @@
 
 if node['network']['domain_controller']
   windows_batch "promote_to_domain_controller" do
-    command "dcpromo /answer:\\#{node.network.unc_host}\#{node.network.share_path}\#{node.network.domain_file}"
+    command "dcpromo /answer:\\\\#{node.network.unc_host}\\#{node.network.share_path}\\#{node.network.domain_file}"
     user "someuser" #if different from whatever we're logged in as; otherwise delete these lines
     group "somegroup"
-    only_if "here we give it a condition to check like Registry.value_exists?('HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run','BGINFO')"
+    only_if "here we give it a condition to check like Registry.value_exists?('HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run','BGINFO')"
   end
 
   # if it's not a domain controller
@@ -40,7 +40,7 @@ if node['network']['domain_controller']
     end
  
     windows_batch "join_domain" do 
-      command "netdom join %COMPUTERNAME% /domain:#{node.network.domain_name} /ou:#{node.network.OU} /userd:rundeck\administrator /passwordd:*** /reboot
+      command "netdom join %COMPUTERNAME% /domain:#{node.network.domain_name} /ou:#{node.network.OU} /userd:rundeck\\administrator /passwordd:*** /reboot
       user "someuser"
       group "somegroup"
       only_if "some check set here"

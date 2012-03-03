@@ -22,7 +22,7 @@ case node["platform"]
   when "windows"
   default['network']['domain_controller'] 	= false
   default['network']['unc_host'] 		= "somehost"
-  default['network']['share_path'] 		= "some\path\to\somewhere\"
+  default['network']['share_path'] 		= "some\\path\\to\\somewhere\\"
   default['network']['domain_file'] 		= "somefilename.txt"
   default['network']['user']			= "SuperAdmin"
   default['network']['group']			= "SuperGroup"
