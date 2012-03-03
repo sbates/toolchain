@@ -40,7 +40,7 @@ if node['network']['domain_controller']
     end
  
     windows_batch "join_domain" do 
-      command "netdom join %COMPUTERNAME% /domain:#{node.network.domain_name} /ou:#{node.network.OU} /userd:rundeck\\administrator /passwordd:*** /reboot
+      command "netdom join %COMPUTERNAME% /domain:#{node.network.domain_name} /ou:#{node.network.OU} /userd:rundeck\\administrator /passwordd:*** /reboot"
       user "someuser"
       group "somegroup"
       only_if "some check set here"
