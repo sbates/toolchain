@@ -33,7 +33,7 @@ if node['network']['domain_controller']
   # let's join the domain
   else
     windows_batch "set_dns" do
-      command "netsh int ip set dns "local area connection" static #{node.network.dns_ip} primary"
+      command "netsh int ip set dns \"local area connection\" static #{node.network.dns_ip} primary"
       user "someuser"
       group "somegroup"
       not_if "check the registry key or file for dns settings?"
