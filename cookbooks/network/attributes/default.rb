@@ -1,4 +1,4 @@
-#
+# Author:: Sascha Bates
 # Cookbook Name:: network
 # Attributes:: default
 #

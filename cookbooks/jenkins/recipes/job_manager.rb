@@ -35,9 +35,7 @@ directory "#{node['jenkins']['node']['home']}/jobs" do
   recursive true
 end.run_action(:create)
  
-%w{jobs_backup vsaas-db-chef-cookbook vsaas-web-chef-cookbook vsaas-web-src-avhs
-   vsaas-db-chef-client-master vsaas-db-ovf vsaas-web-ovf vsaas-web-src-avhs-gst vsaas-db-chef-client-slave	
-   vsaas-roles vsaas-web-chef-client vsaas-web-src-argos vsaas-web-src-binary}.each do |job_name|
+%w{jobs_backup}.each do |job_name| 
   jenkins_job job_name do
     config "#{node['jenkins']['node']['home']}/jobs/#{job_name}-config.xml"
     action :nothing
