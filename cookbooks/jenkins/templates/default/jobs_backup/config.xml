@@ -19,12 +19,12 @@
     <hudson.tasks.Shell>
       <command># find all config files and copy them to svn working directory
 cd /var/lib
-for i in `find ./jenkins -name config.xml`; do cp --parents $i /home/jenkins/svn/toolchain ;done
+for i in `find ./jenkins -name config.xml`; do cp --parents $i <%= node['jenkins']['node']['home'] %>/svn/<%= node['subversion']['repo_name'] %>;done
 # add any new files
-cd /home/jenkins/svn/toolchain
-svn add . --force -q  --username svn --password svn --non-interactive
+cd <%= node['jenkins']['node']['home'] %>/svn/<%= node['subversion']['repo_name'] %>
+svn add . --force -q  --username <%= node['jenkins']['svn']['user' %> --password <%= node['jenkins']['svn']['password'] %> --non-interactive
 #commit the files
-svn commit -q -m &apos;adding changed/added jenkins job config.xml files&apos;  --username svn --password svn --non-interactive</command>
+svn commit -q -m &apos;adding changed/added jenkins job config.xml files&apos; --username <%= node['jenkins']['svn']['user' %> --password <%= node['jenkins']['svn']['password'] %> --non-interactive</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>

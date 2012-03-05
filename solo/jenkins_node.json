@@ -4,5 +4,9 @@
       "plugins":["subversion","git"]
       }
     },      
-  "run_list":["chef", "jenkins", "subversion::server","jenkins::job_manager"]
+    "svn":{
+      "user":"svn",
+      "password":"svn"
+      },
+  "run_list":["chef", "jenkins", "subversion::client","jenkins::job_manager"]
 }
