@@ -37,11 +37,15 @@ end.run_action(:create)
  
 %w{jobs_backup}.each do |job_name| 
   jenkins_job job_name do
-    config "#{node['jenkins']['node']['home']}/jobs/#{job_name}-config.xml"
+    config "#{node['jenkins']['node']['home']}/jobs/#{job_name}/config.xml"
     action :nothing
   end
 
-  template "#{node['jenkins']['node']['home']}/jobs/#{job_name}-config.xml" do
+  directory "#{node['jenkins']['node']['home']}/jobs/#{job_name}" do
+    action :nothing
+  end.run_action(:create)
+
+  template "#{node['jenkins']['node']['home']}/jobs/#{job_name}/config.xml" do
     source "#{job_name}/config.xml"
     owner node['jenkins']['server']['user']
     group node['jenkins']['server']['group']

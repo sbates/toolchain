@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/cmf/!svn/ver/191/windows_cmf/freesshd/files/sshinstall
+END
+FreeSSHDService.ini
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/cmf/!svn/ver/191/windows_cmf/freesshd/files/sshinstall/FreeSSHDService.ini
+END
+unins000.dat
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/cmf/!svn/ver/191/windows_cmf/freesshd/files/sshinstall/unins000.dat
+END
+FreeSSHDService.exe
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/cmf/!svn/ver/191/windows_cmf/freesshd/files/sshinstall/FreeSSHDService.exe
+END
+RSAKey.cfg
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/cmf/!svn/ver/191/windows_cmf/freesshd/files/sshinstall/RSAKey.cfg
+END
+unins000.exe
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/cmf/!svn/ver/191/windows_cmf/freesshd/files/sshinstall/unins000.exe
+END
+DSAKey.cfg
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/cmf/!svn/ver/191/windows_cmf/freesshd/files/sshinstall/DSAKey.cfg
+END
