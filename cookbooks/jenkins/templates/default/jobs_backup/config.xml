@@ -23,7 +23,7 @@ cd /var/lib
 for i in `find ./jenkins -name config.xml`; do cp --parents $i <%= node['jenkins']['node']['home'] %>/svn/<%= node['subversion']['repo_name'] %>;done
 # add any new files
 cd <%= node['jenkins']['node']['home'] %>/svn/<%= node['subversion']['repo_name'] %>
-svn stat | grep ^\? | cut -c9- | xargs svn add -q  --username <%= node['jenkins']['svn']['user'] %> --password <%= node['jenkins']['svn']['password'] %> --non-interactive
+svn stat | xargs svn add -q  --username <%= node['jenkins']['svn']['user'] %> --password <%= node['jenkins']['svn']['password'] %> --non-interactive
 #commit the files
 svn commit -q -m &apos;adding changed/added jenkins job config.xml files&apos; --username <%= node['jenkins']['svn']['user'] %> --password <%= node['jenkins']['svn']['password'] %> --non-interactive</command>
     </hudson.tasks.Shell>
